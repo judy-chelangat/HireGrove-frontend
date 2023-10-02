@@ -43,5 +43,86 @@
     }
   }
   
-  /* homepage styling */
+  /* job listings styling */
+  
+  .job-listings {
+    /* General styling */
+    padding: 20px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  
+  .job-listing {
+    /* Job listing styling */
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 20px;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 1em;
+    color: #333;
+    
+  }
+  
+  .job-listing h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: 900;
+  }
+  
+  .job-listing p {
+    font-size: 16px;
+  }
+  
+  .job-listing button {
+    /* Button styling */
+    background-color: #306bb8;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  .job-listing-footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  /* Responsive styling */
+  @media screen and (max-width: 768px) {
+    .job-listings {
+      padding: 10px;
+    }
+  
+    .job-listing {
+      margin-bottom: 10px;
+    }
+  
+    .job-listing h3 {
+      font-size: 16px;
+    }
+  
+    .job-listing p {
+      font-size: 14px;
+    }
+  }
+  
+  @media screen and (max-width: 576px) {
+    .job-listings {
+      padding: 5px;
+    }
+  
+    .job-listing {
+      margin-bottom: 5px;
+    }
+  
+    .job-listing h3 {
+      font-size: 14px;
+    }
+  
+    .job-listing p {
+      font-size: 12px;
+    }
+  }
   
