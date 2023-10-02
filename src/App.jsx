@@ -8,10 +8,7 @@ function App() {
     <BrowserRouter>
         <Routes>
             <Route exact path='/' element={<LandingPage/>}/>
-            {/* <Route exact path='/beaches' element={<Beaches/>}/>
-            <Route exact path='/ranches' element={<Ranches/>}/>
-            <Route exact path='/parks' element={<Park/>}/>
-            <Route exact path='/hotels' element={<Hotel/>}/> */}
+          
         </Routes>
     </BrowserRouter>
     
