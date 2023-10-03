@@ -1,0 +1,29 @@
+.popup-content .form-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+}
+
+.popup-content .form-group {
+  margin-bottom: 15px;
+}
+
+.popup-content button {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px;
+}
+
+.popup-content button:hover {
+  background: #0056b3;
+}
+
+.popup-content .form-columns > div {
+  display: flex;
+  flex-direction: column;
+}
+.popup-content .form-columns > div {
+  padding: 0 10px; /* Add 10px padding to each column */
+}

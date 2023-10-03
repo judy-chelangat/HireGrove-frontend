@@ -8,19 +8,28 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 1;
   }
   
   .popup-content {
     background: #fff;
     padding: 20px;
     border-radius: 10px;
+    max-width: 400px;
+    width: 100%;
+  }
+  
+  .popup-content h2 {
+    margin-bottom: 20px;
+    text-align: center;
   }
   
   .popup-content input,
-  .popup-content button {
-    width: 100%;
+  .popup-content textarea {
+    width: calc(100% - 20px);
     margin-bottom: 10px;
     padding: 10px;
+    box-sizing: border-box;
   }
   
   .popup-content button {
@@ -28,9 +37,25 @@
     color: #fff;
     border: none;
     cursor: pointer;
+    width: calc(100% - 20px);
+    padding: 10px;
   }
   
   .popup-content button:hover {
     background: #0056b3;
+  }
+  
+  .close-btn {
+    background: #ff5722;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-top: 10px;
+  }
+  
+  .close-btn:hover {
+    background: #d84315;
   }
   
