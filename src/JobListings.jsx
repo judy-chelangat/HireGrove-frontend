@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import JobListing from './JobListing';
 
 
 function JobListings() {
+  const [searchTerm, setSearchTerm] = useState(""); // State to hold the user's input
+  const [locationFilter, setLocationFilter] = useState(""); // State to hold the location filter
     // // fetching the jobs from the backend api
     // const [jobListings, setJobListings] = useState([]);
 
@@ -30,17 +32,44 @@ function JobListings() {
           posted_at: "2023-08-03"
         }
       ];
-
-  return (
-    <div className="job-listings">
-      <h4>Job Listings</h4>
-      <ul>
-        {jobListings.map((job, index) => (
-          <JobListing key={index} job={job} />    
-        ))}
-      </ul>
-    </div>
-  );
-}
-
-export default JobListings;
+      // Filtering the jobs based on the search term
+      const filteredJobs = jobListings.filter((job) => {
+        const jobTitle = job.title || "";
+        return jobTitle.toLowerCase().includes(searchTerm.toLowerCase());
+      });
+    
+      return (
+        <>
+          <div className='jobsearch-container'>
+            <form action="">
+              <input
+                placeholder='job title'
+                className='search-jobs'
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+            </form>
+          </div>
+    
+          <div className="job-listings">
+            <h4>Job Listings</h4>
+            {/* Conditional rendering to display the jobs */}
+            {
+              searchTerm !== ''
+                ? filteredJobs.map((job, index) => (
+                    <JobListing key={index} job={job} />
+                  ))
+                : (
+                  <ul>
+                    {jobListings.map((job, index) => (
+                      <JobListing key={index} job={job} />
+                    ))}
+                  </ul>
+                )
+            }
+          </div>
+        </>
+      );
+    }
+    
+    export default JobListings;
