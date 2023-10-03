@@ -51,7 +51,9 @@
     max-width: 960px;
     margin: 0 auto;
   }
-  
+  .job-listings ul{
+    list-style: none;
+  }
   .job-listing {
     /* Job listing styling */
     border: 1px solid #ccc;
@@ -80,6 +82,7 @@
     background-color: #306bb8;
     color: #fff;
     border: none;
+    border-radius: 20px;
     padding: 10px 20px;
     cursor: pointer;
   }
@@ -126,3 +129,48 @@
     }
   }
   
+  /* Job search input styling */
+.jobsearch-container {
+  margin-bottom: 20px;
+  margin-top: 60px;
+}
+
+.search-jobs {
+  width: 80%;
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  font-size: 16px;
+  line-height: 1.5;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.2s ease-in-out;
+  margin-left: 10%;
+}
+
+.search-jobs:focus {
+  outline: none;
+  border-color: #306bb8;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive styling */
+@media screen and (max-width: 768px) {
+  .jobsearch-container {
+    margin-bottom: 10px;
+  }
+
+  .search-jobs {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .jobsearch-container {
+    margin-bottom: 5px;
+  }
+
+  .search-jobs {
+    font-size: 12px;
+    margin-top: 20px;
+  }
+}
