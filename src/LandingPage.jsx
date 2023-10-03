@@ -21,7 +21,7 @@ function LandingPage() {
           </div>
           <div className="col-lg-6 col-md-12">
             <img
-              src='./public/image 138.png'
+              src='/image 138.png'
               alt="a person"
               className="img-fluid"
             />
