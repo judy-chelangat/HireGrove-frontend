@@ -7,8 +7,8 @@ function Navbar() {
     
         <h3>HireGrove</h3>
         <div className="nav-links">
-         <Link to="./SignUpForm">SignUp</Link>
-         <Link to="./Login">Login</Link>
+         <Link to="./signup">SignUp</Link>
+         <Link to="./login">Login</Link>
          </div>
     
     

@@ -1,6 +1,7 @@
 import React ,{ useState } from 'react';
 // import SignUpForm from './SignUpForm'
 import Navbar from './Navbar';
+import Footer from './Footer';
 
 function LandingPage() {
     // const [showSignupForm,setShowSignupForm]=useState(false);
@@ -28,6 +29,7 @@ function LandingPage() {
           </div>
         </div>
       </div>
+      {/* <Footer/> */}
     </>
   )
 }
