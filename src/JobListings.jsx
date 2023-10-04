@@ -7,33 +7,33 @@ function JobListings() {
   const [searchTerm, setSearchTerm] = useState(""); // State to hold the user's input
   const [locationFilter, setLocationFilter] = useState(""); // State to hold the location filter
     // fetching the jobs from the backend api
-  const [jobListings, setJobListings] = useState([]);
+    const [jobListings, setJobListings] = useState([]); 
 
-    useEffect(() => {
+
+      const [loading, setLoading] = useState(true);
+      const [error, setError] = useState(null);
+
+      useEffect(() => {
         // Fetch the job listings from the backend API
-        fetch("https://job-application-backend.onrender.com/Available jobs")
-          .then((response) => response.json())
-          .then((jobListings) => setJobListings(jobListings));
+        fetch("http://127.0.0.1:5555/Availablejobs")
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Network response was not ok");
+            }
+            return response.json();
+          })
+          .then((jobListings) => {
+            console.log("Fetched job listings:", jobListings); 
+            setJobListings(jobListings);
+            setLoading(false); // Mark loading as complete
+          })
+          .catch((error) => {
+            console.error("Error fetching job listings:", error); 
+            setError(error); // Set the error state
+            setLoading(false); // Mark loading as complete
+          });
       }, []);
-      
-    // const jobListings = [
-    //     {
-    //       id: 1,
-    //       title: "Software Engineer",
-    //       description: "We are looking for a talented software engineer to join our team. You will be responsible for developing and maintaining our web applications.",
-    //       company_name: "Google",
-    //       location: "Mountain View, CA",
-    //       posted_at: "2023-08-04"
-    //     },
-    //     {
-    //       id: 2,
-    //       title: "Product Manager",
-    //       description: "We are looking for a product manager to help us develop and launch new products. You will be responsible for gathering user requirements, working with engineers to design and develop products, and launching and marketing new products.",
-    //       company_name: "Facebook",
-    //       location: "Menlo Park, CA",
-    //       posted_at: "2023-08-03"
-    //     }
-    //   ];
+
       // Filtering the jobs based on the search term
       const filteredJobs = jobListings.filter((job) => {
         const jobTitle = job.title || "";
@@ -64,18 +64,23 @@ function JobListings() {
             <p>Available Jobs</p>
             {/* Conditional rendering to display the jobs */}
             {
-              searchTerm !== ''
-                ? filteredJobs.map((job, index) => (
-                    <JobListing key={index} job={job} />
-                  ))
-                : (
-                  <ul>
-                    {jobListings.map((job, index) => (
+              jobListings !== '' && jobListings.length > 0 ? (
+                searchTerm !== ''
+                  ? filteredJobs.map((job, index) => (
                       <JobListing key={index} job={job} />
-                    ))}
-                  </ul>
-                )
+                    ))
+                  : (
+                    <ul>
+                      {jobListings.map((job, index) => (
+                        <JobListing key={index} job={job} />
+                      ))}
+                    </ul>
+                  )
+              ) : (
+                <p>Loading job listings...</p>
+              )
             }
+
           </div>
         </>
       );
