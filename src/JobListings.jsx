@@ -15,6 +15,7 @@ function JobListings() {
           .then((response) => response.json())
           .then((jobListings) => setJobListings(jobListings));
       }, []);
+      
     // const jobListings = [
     //     {
     //       id: 1,
