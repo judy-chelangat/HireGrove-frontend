@@ -9,6 +9,7 @@ function LandingPage() {
     // const handleSignupClick =()=>{
     //     setShowSignupForm(true)
     // }
+    
   return (
     <>
         <Navbar/>

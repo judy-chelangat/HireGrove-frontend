@@ -10,6 +10,7 @@ import AddJob from "./AddJob.jsx";
 import JobApplicationForm from './JobApplicationform.jsx'
 
 function App() {
+    
   return (
     <>
     <BrowserRouter>
