@@ -13,7 +13,7 @@ function LandingPage() {
   return (
     <>
         <Navbar/>
-      <div className="container mt-5">
+      <div className="container mt-5 home-page">
         <div className="row">
           <div className="col-lg-6 col-md-12 d-flex align-items-center">
             <div>

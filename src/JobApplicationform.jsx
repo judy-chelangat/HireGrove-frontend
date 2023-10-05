@@ -1,137 +1,138 @@
 import React, { useState } from 'react';
+import {
+  MDBBtn,
+  MDBContainer,
+  MDBRow,
+  MDBCol,
+  MDBCard,
+  MDBCardBody,
+  MDBInput,
+  MDBTextArea,
+  MDBFile,
+} from 'mdb-react-ui-kit';
 import './jobapplication.css';
 
-const JobApplicationForm = () => {
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    address: '',
-    city: '',
-    jobRole: '',
-    pinCode: '',
-    startDate: '',
-  });
+function JobApplicationForm() {
+  const [isSuccess, setIsSuccess] = useState(false); // Track the success status
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  const handleSubmit = async (event) => {
+    event.preventDefault();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Create a function to link with the database.
+    // Get the job application data from the form.
+    const jobApplicationData = {
+      name: event.target.fullName.value,
+      email: event.target.email.value,
+      coverLetter: event.target.message.value,
+      cv: event.target.cv.files[0],
+    };
+
+    // Post the job application data to the backend API.
+    const response = await fetch('http://localhost:5555/job-applications', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(jobApplicationData),
+    });
+
+    // Handle the success response from the backend API.
+    if (response.ok) {
+      // The job application has been successfully submitted.
+      // Update your state to reflect this and show the success message.
+      setIsSuccess(true);
+      // You can also reset the form fields here if needed.
+    } else {
+      // There was an error submitting the job application.
+      // Handle the error here.
+    }
   };
 
   return (
-    <div className="popup">
-      <div className="popup-content">
-        <h2>Job Application Form</h2>
-        <form onSubmit={handleSubmit} className="form-columns">
-          <div className="form-column">
-            <div className="form-group">
-              <label htmlFor="firstName">First Name</label>
-              <input
-                type="text"
-                id="firstName"
-                name="firstName"
-                value={formData.firstName}
-                placeholder="First Name"
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="lastName">Last Name</label>
-              <input
-                type="text"
-                id="lastName"
-                name="lastName"
-                value={formData.lastName}
-                placeholder="Last Name"
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="email">Email</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                placeholder="E.g ...ana@gmail.com"
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="address">Address</label>
-              <input
-                type="text"
-                id="address"
-                name="address"
-                value={formData.address}
-                placeholder="E.g P.O.Box..."
-                onChange={handleChange}
-                required
-              />
-            </div>
-          </div>
-          <div className="form-column">
-            <div className="form-group">
-              <label htmlFor="city">City</label>
-              <input
-                type="text"
-                id="city"
-                name="city"
-                value={formData.city}
-                placeholder="E.g ...New York"
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="jobRole">Job Role</label>
-              <input
-                type="text"
-                id="jobRole"
-                name="jobRole"
-                value={formData.jobRole}
-                placeholder="E.g... Backend Developer"
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="pinCode">Pin Code</label>
-              <input
-                type="text"
-                id="pinCode"
-                name="pinCode"
-                value={formData.pinCode}
-                placeholder="PinCode"
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="startDate">Start Date</label>
-              <input
-                type="date"
-                id="startDate"
-                name="startDate"
-                value={formData.startDate}
-                placeholder="E.g... 3/10/23"
-                onChange={handleChange}
-                required
-              />
-            </div>
-          </div>
-          <button type="submit">Apply Now</button>
-        </form>
-      </div>
-    </div>
+    <MDBContainer fluid>
+      <MDBRow className='d-flex justify-content-center align-items-center'>
+        <MDBCol lg='9' className='my-5'>
+          <h3 className='text-center mb-4'>Apply for a job</h3>
+
+          <MDBCard>
+            <MDBCardBody className='px-4'>
+              <form onSubmit={handleSubmit}>
+                {isSuccess && (
+                  <div className='alert alert-success' role='alert'>
+                    Application submitted successfully!
+                  </div>
+                )}
+                <div className='mb-3'>
+                  <label htmlFor='fullName' className='form-label'>
+                    Full Name
+                  </label>
+                  <input
+                    type='text'
+                    className='form-control'
+                    id='fullName'
+                    name='fullName'
+                    placeholder='John Doe'
+                  />
+                </div>
+
+                <div className='mb-3'>
+                  <label htmlFor='email' className='form-label'>
+                    Email Address
+                  </label>
+                  <input
+                    type='email'
+                    className='form-control'
+                    id='email'
+                    name='email'
+                    placeholder='example@example.com'
+                  />
+                </div>
+
+                <div className='mb-3'>
+                  <label htmlFor='message' className='form-label'>
+                    Cover Letter
+                  </label>
+                  <textarea
+                    className='form-control'
+                    id='message'
+                    name='message'
+                    rows='3'
+                    placeholder='Your message...'
+                  />
+                </div>
+
+                <div className='mb-3'>
+                  <label htmlFor='cv' className='form-label'>
+                    Upload CV
+                  </label>
+                  <input
+                    type='file'
+                    className='form-control'
+                    id='cv'
+                    name='cv'
+                    accept='.pdf, .doc, .docx'
+                  />
+                  <small className='text-muted mt-2'>
+                    Upload your CV/Resume or any other relevant file. Max file
+                    size 50 MB.
+                  </small>
+                </div>
+
+                <div className='text-center'>
+                  <MDBBtn
+                    size='lg'
+                    className='send-application-button'
+                    type='submit'
+                  >
+                    Send Application
+                  </MDBBtn>
+                </div>
+              </form>
+            </MDBCardBody>
+          </MDBCard>
+        </MDBCol>
+      </MDBRow>
+    </MDBContainer>
   );
-};
+}
 
 export default JobApplicationForm;

@@ -1,29 +1,11 @@
-.popup-content .form-columns {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 20px;
-}
-
-.popup-content .form-group {
-  margin-bottom: 15px;
-}
-
-.popup-content button {
-  background: #007bff;
-  color: #fff;
+.send-application-button {
+  background-color: #8AAAE5;
+  color: rgb(41, 25, 25);
+  border-radius: 18px;
   border: none;
-  cursor: pointer;
-  padding: 10px 20px;
+  transition: background-color 0.3s ease;
 }
-
-.popup-content button:hover {
-  background: #0056b3;
-}
-
-.popup-content .form-columns > div {
-  display: flex;
-  flex-direction: column;
-}
-.popup-content .form-columns > div {
-  padding: 0 10px; /* Add 10px padding to each column */
+.send-application-button:hover {
+  background-color: #aec4ec;
+  color: black;
 }
