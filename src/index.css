@@ -72,7 +72,7 @@
     list-style: none;
   }
   .job-listing {
-    /* Job listing styling */
+    display: flex;
     border: 1px solid #ccc;
     padding: 20px;
     margin-bottom: 20px;
@@ -83,7 +83,10 @@
     color: #333;
     
   }
-  
+  .image-container {
+    margin-right: 10px; 
+    width: 100px;
+  }
   .job-listing h3 {
     font-size: 18px;
     margin-bottom: 10px;

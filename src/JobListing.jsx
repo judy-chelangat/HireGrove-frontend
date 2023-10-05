@@ -5,16 +5,23 @@ import JobApplicationForm from './JobApplicationform';
 function JobListing({ job }) {
     return (
       <li className="job-listing">
-        <h3>{job.title}</h3>
-        <p>{job.description}</p>
-        <div className="job-listing-footer">
-          <p>Company: {job.company_name}</p>
-          <p>Location: {job.location}</p>
-          <p>Posted at: {job.datetime}</p>
-          <Link to={'/jobApplication'} className="apply-link" >Apply</Link>
+        <div className="image-container">
+          {job.image_url && <img src={job.image_url} alt="Company Logo" />}
         </div>
-       
-      </li>
+        <div className="job-details">
+          <h3>{job.title}</h3>
+          <p>{job.description}</p>
+          <div className="job-listing-footer">
+            <p>Company: {job.company_name}</p>
+            <p>Location: {job.location}</p>
+            <p>Posted at: {job.datetime}</p>
+            <Link to={'/jobApplication'} className="apply-link">
+              Apply
+            </Link>
+          </div>
+        </div>
+   </li>
+
     );
   }
 
