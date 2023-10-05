@@ -42,24 +42,23 @@ function JobListings() {
     
       return (
         <>
-       <div className="job-nav-bar">
-            
-            <div className="job-nav-links">
-            <Link to="/jobs/appliedjobs">Applied Jobs </Link>
-            <Link to="postjob" className="create-job-alert">Create Job Alert</Link>
-            </div>
+    <div className="jobsearch-nav-container">
+        <form action="" className="jobsearch-form">
+          <input
+            placeholder="job title"
+            className="search-jobs"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+        </form>
+        <div className="job-nav-links">
+          <Link to="/jobs/appliedjobs">Applied Jobs</Link>
+          <Link to="/addjob" className="create-job-alert">
+            Create Job Alert
+          </Link>
         </div>
-          <div className='jobsearch-container'>
-            <form action="">
-              <input
-                placeholder='job title'
-                className='search-jobs'
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-              />
-            </form>
-          </div>
-    
+      </div>
+
           <div className="job-listings">
             <p>Available Jobs</p>
             {/* Conditional rendering to display the jobs */}

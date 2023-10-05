@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import JobApplicationForm from './JobApplicationform';
 
 function JobListing({ job }) {
     return (
@@ -8,9 +10,10 @@ function JobListing({ job }) {
         <div className="job-listing-footer">
           <p>Company: {job.company_name}</p>
           <p>Location: {job.location}</p>
-          <p>Posted at: {job.posted_at}</p>
-          <button onClick={() => handleApplyClick(job.id)}>Apply</button>
+          <p>Posted at: {job.datetime}</p>
+          <Link to={'/jobApplication'} className="apply-link" >Apply</Link>
         </div>
+       
       </li>
     );
   }
