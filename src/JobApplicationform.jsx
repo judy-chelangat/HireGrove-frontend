@@ -22,12 +22,12 @@ function JobApplicationForm() {
     const jobApplicationData = {
       name: event.target.fullName.value,
       email: event.target.email.value,
-      coverLetter: event.target.message.value,
-      cv: event.target.cv.files[0],
+      cover_letter: event.target.message.value,
+      resume_url: event.target.resume_url.value,
     };
 
     // Post the job application data to the backend API.
-    const response = await fetch('http://localhost:5555/job-applications', {
+    const response = await fetch('https://hiregrove.onrender.com/job-applications', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -102,19 +102,16 @@ function JobApplicationForm() {
 
                 <div className='mb-3'>
                   <label htmlFor='cv' className='form-label'>
-                    Upload CV
+                    Resume url
                   </label>
                   <input
-                    type='file'
+                    type='text'
                     className='form-control'
                     id='cv'
-                    name='cv'
-                    accept='.pdf, .doc, .docx'
+                    name='resume_url'
+                    
                   />
-                  <small className='text-muted mt-2'>
-                    Upload your CV/Resume or any other relevant file. Max file
-                    size 50 MB.
-                  </small>
+                  
                 </div>
 
                 <div className='text-center'>

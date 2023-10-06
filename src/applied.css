@@ -1,0 +1,154 @@
+/* AppliedJobs.css (or your CSS file) */
+.remove-submission-button {
+    background-color: #8AAAE5; /* Choose your desired background color */
+    color: #fff; /* Text color */
+    font-size: 12px;
+    border: none;
+    border-radius: 5px;
+    padding: 2px 9px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease; /* Smooth color transition on hover */
+    
+    /* Center the button text vertically and horizontally */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .remove-submission-button:hover {
+    background-color: grey; /* Change color on hover */
+  }
+  
+  input[type="text"] {
+    width: 30%;
+    padding: 5px;
+    margin-top: 10px;
+  }
+  
+  button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  /* AppliedJobs.css */
+  
+  .button-container {
+    display: flex;
+    align-items: center; /* Vertically align items in the container */
+    justify-content: space-between; /* Equal spacing between child elements */
+  }
+  
+  .resume-url-input {
+    flex: 1; /* Allow the input to grow and take available space */
+    margin-right: 10px; /* Add some spacing between input and buttons */
+  }
+  
+  .button-group {
+    display: flex;
+    gap: 10px; /* Add spacing between buttons */
+  }
+
+   /* ---------------------------------------------------------------------------------------------------------- */
+  /* job listings styling */
+  
+  .job-listings {
+    /* General styling */
+    padding: 20px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  .job-listings ul{
+    list-style: none;
+  }
+  .job-listing {
+    display: flex;
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 20px;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 1em;
+    color: #333;
+    
+  }
+  .image-container {
+    margin-right: 10px; 
+    width: 100px;
+  }
+  .job-listing h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: 900;
+  }
+  
+  .job-listing p {
+    font-size: 16px;
+  }
+  
+  .job-listing-footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  /* Custom style for the Apply link */
+.job-listing .apply-link {
+  color: black;
+  text-decoration: none;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #8AAAE5;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.job-listing .apply-link:hover {
+  background-color: #7290af;
+}
+  /* Responsive styling */
+  @media screen and (max-width: 768px) {
+    .job-listings {
+      padding: 10px;
+    }
+  
+    .job-listing {
+      margin-bottom: 10px;
+    }
+  
+    .job-listing h3 {
+      font-size: 16px;
+    }
+  
+    .job-listing p {
+      font-size: 14px;
+    }
+  }
+  
+  @media screen and (max-width: 576px) {
+    .job-listings {
+      padding: 5px;
+    }
+  
+    .job-listing {
+      margin-bottom: 5px;
+    }
+  
+    .job-listing h3 {
+      font-size: 14px;
+    }
+  
+    .job-listing p {
+      font-size: 12px;
+    }
+  }

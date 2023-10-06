@@ -15,7 +15,7 @@ function JobListings() {
 
       useEffect(() => {
         // Fetch the job listings from the backend API
-        fetch("http://127.0.0.1:5555/Availablejobs")
+        fetch("https://hiregrove.onrender.com/Availablejobs")
           .then((response) => {
             if (!response.ok) {
               throw new Error("Network response was not ok");
