@@ -1,0 +1,11 @@
+.send-application-button {
+  background-color: #8AAAE5;
+  color: rgb(41, 25, 25);
+  border-radius: 18px;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+.send-application-button:hover {
+  background-color: #aec4ec;
+  color: black;
+}
