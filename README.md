@@ -73,6 +73,7 @@ This project is licensed under the MIT License -
 ### Author
 
     Judy Chelangat
+    Noah Ntabo
 ### Contact
 
 If you have any questions or need assistance, please feel free to reach out to me :
